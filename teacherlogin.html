@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="validationtlogin.js"></script>
   <title>Login page</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
@@ -12,7 +13,7 @@
   <div class="col-md-4">
   <div style="margin-top:150px;">
   <h2 style="text-align:center;"><u>LOGIN</u></h2>
-  <form role="form" method="post" action="tlogin.php">
+  <form role="form" method="post" action="tlogin.php" onSubmit="return vali()">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" name="p1" placeholder="Email">
@@ -20,7 +21,7 @@
 	<form role="form">
     <div class="form-group">
       <label for="Password">Password:</label>
-      <input type="password" class="form-control" name="p2" placeholder="Password">
+      <input type="password" class="form-control" name="p2" id="p2" placeholder="Password">
     </div>
 	<button type="submit" class="btn btn-default">Submit</button>
 	</form>
