@@ -17,10 +17,12 @@ $email=$_POST['t3'];
 $password=$_POST['t4'];
 $contact=$_POST['t5'];
 
+
+
 $sql = "INSERT INTO tsignup (full_name, depart, email, web_password, contact) VALUES ('$name', '$depart', '$email', '$password', '$contact')";
 
 if ($conn->query($sql) === TRUE) {
-    header("location:welcome.php");
+    header("location:teacherlogin.html");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

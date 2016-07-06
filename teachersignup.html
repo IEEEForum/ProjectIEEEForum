@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="validation.js"></script>
   <title>teacher sign up page</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,14 +15,16 @@
 <div style="margin-top:20px;">
   <h2 style="text-align:center;"><u>SIGN UP</u></h2>
   <br>
-  <form role="form" method="post" action="tsignup.php">
+  <form role="form" method="post" action="tsignup.php" onSubmit="return vali()">
     <div class="form-group">
       <label for="First name">Full Name:</label>
-      <input type="name" class="form-control" name="t1" placeholder="Name">
+      <input type="name" class="form-control" name="t1" id="t1" placeholder="Name">
     </div>
 	<div class="form-group">
-      <label for="department">Department:</label>
-      <input type="text" class="form-control" name="t2" placeholder="department">
+      <label for="department">Department:</label><br>
+     <input type="radio" name="t2" value="CSE"> CSE
+  <input type="radio" name="t2" value="ECE"> ECE
+  <input type="radio" name="t2" value="BIOTECH"> BIOTECH
     </div>
 	<div class="form-group">
       <label for="email">Email:</label>
@@ -29,13 +32,13 @@
     </div>
 	<div class="form-group">
       <label for="pwd">Webkiosk Password:</label>
-      <input type="password" class="form-control" name="t4" placeholder="Enter webkiosk password">
+      <input type="password" class="form-control" name="t4" id="t4" placeholder="Enter webkiosk password">
     </div>
 	<div class="form-group">
       <label for="Mobile no.">Contact No.:</label>
-      <input type="number" class="form-control" name="t5" placeholder="Contact no.">
+      <input type="number" class="form-control" name="t5" id="t5"  placeholder="Contact no.">
     </div>
-	 <button type="submit" class="btn btn-default">Submit</button>
+	 <input type="submit" class="btn btn-default" name="submit" id="submit" value="submit"></button>
   </form>
   </div>
   </div>
