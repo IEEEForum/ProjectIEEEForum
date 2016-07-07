@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="stusignvali.js"></script>
   <title>sign up page</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,35 +15,40 @@
 <div style="margin-top:20px;">
   <h2 style="text-align:center;"><u>SIGN UP</u></h2>
   <br>
-  <form role="form">
+  <form role="form" method="post" action="sign.php" onSubmit="return vali()">
     <div class="form-group">
       <label for="First name">Full Name:</label>
-      <input type="name" class="form-control" name="name" placeholder="Name">
+      <input type="name" class="form-control" name="t1" id="t1" placeholder="Name">
     </div>
 	<div class="form-group">
       <label for="Enrollment no.">Enrollment No.:</label>
-      <input type="number" class="form-control" name="name" placeholder="Enrollment no.">
+      <input type="number" class="form-control" name="t2" id="t2" placeholder="Enrollment no.">
     </div>
 	<div class="form-group">
       <label for="batch">Batch:</label>
-      <input type="text" class="form-control" name="batch" placeholder="batch">
+      <input type="text" class="form-control" name="t3" id="t3" placeholder="batch">
     </div>
 	<div class="form-group">
-      <label for="branch">Branch:</label>
-      <input type="text" class="form-control" name="branch" placeholder="branch">
+      <label for="branch">Branch:</label><br>
+      <input type="radio" name="t4" value="CSE"> CSE
+	  <input type="radio" name="t4" value="ECE"> ECE
+  <input type="radio" name="t4" value="BIOTECH"> BIOTECH<br>
+  <input type="radio" name="t4" value="DCSE"> DCSE
+  <input type="radio" name="t4" value="DECE"> DECE
+  <input type="radio" name="t4" value="DBIOTECH"> DBIOTECH
     </div>
 	
 	<div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" name="email" placeholder="Enter email">
+      <input type="email" class="form-control" name="t5" id="t5" placeholder="Enter email">
     </div>
 	<div class="form-group">
       <label for="pwd">Webkiosk Password:</label>
-      <input type="password" class="form-control" name="pwd" placeholder="Enter webkiosk password">
+      <input type="password" class="form-control" name="t6" id="t6" placeholder="Enter webkiosk password">
     </div>
 	<div class="form-group">
       <label for="Mobile no.">Contact No.:</label>
-      <input type="number" class="form-control" name="mobile" placeholder="Contact no.">
+      <input type="number" class="form-control" name="t7" id="t7" placeholder="Contact no.">
     </div>
 	 <button type="submit" class="btn btn-default">Submit</button>
   </form>
