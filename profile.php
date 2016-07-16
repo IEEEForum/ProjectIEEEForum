@@ -1,0 +1,404 @@
+<?php
+session_start();
+$a=$_SESSION['en'];
+if($a=="")
+{
+	header("location:studentlogin.html");
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+	 <title>User_Profile</title>
+	 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+	 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <style>
+body {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script> 
+
+function poststatus()
+{
+	var type=document.getElementById("typePost").value;
+	var txt=document.getElementById("textarea1").value;
+	var pro=document.getElementById("place_content1").innerHTML;
+	if(pro=="Share With")
+	{
+		alert("SELECT SHARE WITH");
+	}
+	else
+	{
+	
+	$.ajax({
+		url: "pro.php",
+		type:"POST",
+		data:{"type":type,"txt":txt,"pro":pro},
+		dataType :'json',
+		
+	success: function(result)
+	{
+       alert(result);
+    },
+	error: function(error){
+	}
+	});	
+
+	}
+}
+
+function update_share_content(a)
+{
+	document.getElementById('place_content1').innerHTML=a;
+}
+
+function type_of_post(q)
+{
+	document.getElementById("typePost").value=q;
+	
+	if(q==1)
+	document.getElementById("typepostcontent").innerHTML="What's on Your Mind";
+else if(q==2)
+	document.getElementById("typepostcontent").innerHTML="Share Your Doubts";
+else if(q==3)
+	document.getElementById("typepostcontent").innerHTML="Assignments and Questions";
+}
+
+</script>
+<script>
+$(".button-collapse").sideNav();
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+</head>
+<body>
+<!--header starts-->
+<div class="navbar-fixed">
+<ul id="profile1" class="dropdown-content">
+  <li><a href="#!"><i class="material-icons red-text text-darken-2">face</i>Your Profile</a></li>
+  <li><a href="#!"><i class="material-icons red-text text-darken-2 ">settings</i>Settings</a></li>
+  <li class="divider"></li>
+  <li><a href="logout.php"><i class="material-icons red-text text-darken-2">keyboard_tab</i>Log Out</a></li>
+</ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">JIIT_HELP WELCOMES :<?php echo $a;?></a>
+		
+        <ul class="right hide-on-med-and-down">
+          <!--<li><a href="#!"></a></li>-->
+		  
+        <li><a href="#"><i class="material-icons">home</i></a></li>
+        <li><a href="#"><i class="material-icons">contact_phone</i></a></li>
+        <li><a href="#"><i class="material-icons">supervisor_account</i></a></li>
+      
+		  <li><a class="dropdown-button" href="#" data-activates = "profile1"><img src="img/2.jpg" class="circle responsive-img valign profile-post-uer-image" style="margin : 10px;"><i class="material-icons right">arrow_drop_down</i></a></li>
+          <li class="active"><a href="#" data-activates = "notification1"><i class="material-icons">notifications_active</i></a></li>
+          <li><a href="http://www.jiit.ac.in/"><img src="img/3.jpg" class="circle responsive-img valign profile-post-uer-image" style="margin : 4px;"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<!--header ends-->
+<div id="main">
+
+    <div class="row">
+	<div class="col m11">
+  <section id="content">
+  
+   <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+               <img class="activator" src="img/bg.jpg" alt="user background">                    
+         </div>
+		 <figure class="card-profile-image">
+                    <img src="img/1.jpg" alt="profile image" class="circle z-depth-2 responsive-img activator" style="margin : 0px">
+                </figure>
+		 <div class="card-content">
+                  <div class="row">                    
+                    <div class="col s3 offset-s2">                        
+                        <h4 class="card-title grey-text text-darken-4">Abcdefgh</h4>
+                        <p class="medium-small grey-text">Abcdefgh</p>                        
+                    </div>
+                    <div class="col s2 center-align">
+                        <h5 class="card-title grey-text text-darken-4">10+</h5>
+                        <p class="medium-small grey-text">Experience</p>                        
+                    </div>
+                    <div class="col s2 center-align">
+                        <h5 class="card-title grey-text text-darken-4">6</h5>
+                        <p class="medium-small grey-text">Completed Projects</p>                        
+                    </div>                    
+                    <div class="col s2 center-align">
+                        <h5 class="card-title grey-text text-darken-4">Abcdefgh</h4>
+                        <p class="medium-small grey-text">Abcdefgh</p>                        
+                    </div>                    
+                    <div class="col s1 right-align">
+                      <a class="btn-floating activator waves-effect red darken-2 right">
+                          <i class="material-icons">perm_identity</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>		
+				<div class="card-reveal">
+                    <p>
+                      <span class="card-title grey-text text-darken-4">Abcdefgh <i class="material-icons right">close</i></span>
+                      <span><i class="material-icons red-text text-darken-2">perm_identity</i>Abcdefgh</span>
+                    </p>
+
+                    <p><i class="material-icons red-text text-darken-2">description</i>abcdefghljmnbdksngknb;lnmblmnlmvlnmlnmlbmnlmnlmlnmlnmnlmlnmlnm;lfmlnml;ml;mngmlnmgfmn;lmn;lmndkjfbgjdfgjbndjgn;kkdnkndfkkfdkjfdjkfd.</p>
+                    
+                    <p><i class="material-icons red-text text-darken-2">perm_phone_msg</i> +123456767889</p>
+                    <p><i class="material-icons red-text text-darken-2">email</i> mail@xyz.com</p>
+                    <p><i class="material-icons red-text text-darken-2">cake</i> 18th June 2016</p>
+                    <p><i class="material-icons red-text text-darken-2">airplanemode_active</i> NDLS-IND</p>
+                </div>
+   </div>
+   <!--</div>
+   </div>
+  </div><!---->
+  </section>
+  <!----></div>
+   </div>
+    <!-- START RIGHT SIDEBAR NAV-->
+      <aside id="right-sidebar-nav">
+        <ul id="notification1" class="side-nav rightside-navigation">
+            <li class="li-hover">
+            <a href="#" class="chat-close-collapse right"><i class="material-icons">close</i></a>
+            <div id="right-search" class="row">
+                <form class="col s12">
+                    <div class="input-field">
+                        <i class="material-icons">search</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Search</label>
+                    </div>
+                </form>
+            </div>
+            </li>
+            <li class="li-hover">
+                <ul class="chat-collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header teal white-text active"><i class="material-icons">whatshot</i>Recent Activity</div>
+                    <div class="collapsible-body recent-activity">
+                        <div class="recent-activity-list chat-out-list row">
+                            <div class="col s3 recent-activity-list-icon"><i class="material-icons">announcement</i>
+                            </div>
+                            <div class="col s9 recent-activity-list-text">
+                                <a href="#">just now</a>
+                                <p>asnkbjbjbnjbkjbjbkbjkljlbjbjbnjnlkjnjk.</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity-list chat-out-list row">
+                            <div class="col s3 recent-activity-list-icon"><i class="material-icons">announcement</i>
+                            </div>
+                            <div class="col s9 recent-activity-list-text">
+                                <a href="#">Yesterday</a>
+                                <p>asnkbjbjbnjbkjbjbkbjkljlbjbjbnjnlkjnjk.</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity-list chat-out-list row">
+                            <div class="col s3 recent-activity-list-icon"><i class="material-icons">announcement</i>
+                            </div>
+                            <div class="col s9 recent-activity-list-text">
+                                <a href="#">5 Days Ago</a>
+                                <p>asnkbjbjbnjbkjbjbkbjkljlbjbjbnjnlkjnjk.</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity-list chat-out-list row">
+                            <div class="col s3 recent-activity-list-icon"><i class="material-icons">announcement</i>
+                            </div>
+                            <div class="col s9 recent-activity-list-text">
+                                <a href="#">Last Week</a>
+                                <p>asnkbjbjbnjbkjbjbkbjkljlbjbjbnjnlkjnjk.</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity-list chat-out-list row">
+                            <div class="col s3 recent-activity-list-icon"><i class="material-icons">announcement</i>
+                            </div>
+                            <div class="col s9 recent-activity-list-text">
+                                <a href="#">5 Days Ago</a>
+                                <p>asnkbjbjbnjbkjbjbkbjkljlbjbjbnjnlkjnjk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+               
+                </ul>
+            </li>
+        </ul>
+      </aside>
+      <!-- LEFT RIGHT SIDEBAR NAV-->
+  </div><!---->
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">search</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+  <!-- profile-page-wall -->
+              <div id="profile-page-wall" class="col s12 m8">
+                <!-- profile-page-wall-share -->
+                <div id="profile-page-wall-share" class="row">
+                  <div class="col s12">
+                    <ul class="tabs tab-profile z-depth-1 red" id="type_of_post">
+                      <li class="tab col s3" onclick="type_of_post(1);" ><a  class="white-text waves-effect waves-light active"><i class="material-icons" style="margin : 4px;">border_color</i>Ask Question</a>
+                      </li>
+                      <li class="tab col s3" onclick="type_of_post(2);"><a  class="white-text waves-effect waves-light" ><i class="material-icons" style="margin : 4px;">insert_comments</i>Give Suggestions</a>
+                      </li>
+                      <li class="tab col s3" onclick="type_of_post(3);" ><a  class="white-text waves-effect waves-light" href="#CreateAlbum"><i class="material-icons">attach_file</i>Add Assignments</a>
+                      </li>                      
+                    </ul>
+					<input type="hidden" value="1" id="typePost">
+                    <!-- UpdateStatus-->
+                    <div id="UpdateStatus" class="tab-content col s12  grey lighten-4">
+                      <div class="row">
+                        <div class="col s2">
+                          <img src="img/1.jpg" alt="" class="circle responsive-img valign profile-image-post">
+                        </div>
+                        <div class="input-field col s10">
+                          <textarea id="textarea1" row="2" class="materialize-textarea"></textarea>
+                          <label id="typepostcontent" for="textarea" class="">What's on your mind?</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12 m6 share-icons">
+                          <a href="#"><i class="material-icons red-text text-darken-2">camera_alt</i></a>
+                          <a href="#"><i class="material-icons red-text text-darken-2">account_circle</i></a>
+                          <a href="#"><i class="material-icons red-text text-darken-2">room</i></a>
+						   <a href="#"><i class="material-icons red-text text-darken-2">insert_link</i></a>
+                          
+                        </div>
+                        <div class="col s12 m6 right-align">
+                           <!-- Dropdown Trigger -->
+                            <a class='dropdown-button btn red'  data-activates='profilePost'><i class="material-icons">language</i><span id="place_content1">Share With</span> </a>
+
+                            <!-- Dropdown Structure -->
+                            <ul id='profilePost' class='dropdown-content'>
+                              <li><a onclick="update_share_content('Public');"><i class="material-icons red-text text-darken-2">language</i> Public</a></li>
+                              <li><a  onclick="update_share_content('My Batch');"><i class="material-icons red-text text-darken-2">face</i>My Batch</a></li>                              
+                              <li><a  onclick="update_share_content('Only Me');"><i class="material-icons red-text text-darken-2">lock_outline</i> Only Me</a></li>
+                            </ul>
+                          
+                            <button class="waves-effect waves-light btn red" onclick="poststatus();"><i class="material-icons left">rate_review</i>Post</button>
+                        </div>
+                      </div>
+                    </div>
+                                    <!--/ profile-page-wall-share -->
+
+                <!-- profile-page-wall-posts -->
+                <div id="profile-page-wall-posts"class="row">
+                  <div class="col s6">
+                      <!-- medium -->
+                      <div id="profile-page-wall-post" class="card">
+                        <div class="card-profile-title">
+                          <div class="row">
+                            <div class="col s1">
+                              <img src="img/1.jpg" alt="" class="circle responsive-img valign profile-post-uer-image" style="margin : 10px">                        
+                            </div>
+                            <div class="col s10">
+                              <p class="red-text text-darken-4 margin">Abcdef</p>
+                              <span class="red-text text-darken-1 ultra-small"><i class="material-icons red-text text-darken-2">language</i>Shared publicly  -  26 Jun 2016</span>
+                            </div>
+                            <div class="col s1 right-align">
+                              <i class="material-icons" style="margin : 10px">expand_more</i>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col s12">
+                              <p>I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>.  I require little more information to use effectively.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-image profile-medium">                          
+                          <img src="img/bg.jpg" alt="sample" class="responsive-img profile-post-image profile-medium">                        
+                          <span class="card-title">Information</span>
+                        </div>
+                        <div class="card-content">
+                          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action row">
+                          <div class="col s4 card-action-share">
+                            <a href="#">Like</a>                          
+                            <a href="#">Share</a>
+							<a class="waves-effect waves-light btn red"><i  class="material-icons left">border_color</i>Edit</a>
+                          </div>
+                          
+                          <div class="input-field col s8 margin">
+                            <input id="profile-comments" type="text" class="validate margin">
+                            <label for="profile-comments" class="">Comments/Questions</label>
+                          </div>                        
+                        </div>                        
+                      </div>
+					  </div>
+					  <!---->
+					   <div class="col s6">
+                      <!-- medium -->
+                      <div id="profile-page-wall-post" class="card">
+                        <div class="card-profile-title">
+                          <div class="row">
+                            <div class="col s1">
+                              <img src="img/1.jpg" alt="" class="circle responsive-img valign profile-post-uer-image" style="margin : 10px">                        
+                            </div>
+                            <div class="col s10">
+                              <p class="red-text text-darken-4 margin">Abcdef</p>
+                              <span class="red-text text-darken-1 ultra-small"><i class="material-icons red-text text-darken-2">language</i>Shared publicly  -  26 Jun 2016</span>
+                            </div>
+                            <div class="col s1 right-align">
+                              <i class="material-icons" style="margin : 10px">expand_more</i>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col s12">
+                              <p>I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>.  I require little more information to use effectively.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-image profile-medium">                          
+                          <img src="img/bg.jpg" alt="sample" class="responsive-img profile-post-image profile-medium">                        
+                          <span class="card-title">Information</span>
+                        </div>
+                        <div class="card-content">
+                          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action row">
+                          <div class="col s4 card-action-share">
+                            <a href="#">Like</a>                          
+                            <a href="#">Share</a>
+							<a class="waves-effect waves-light btn red"><i  class="material-icons left">border_color</i>Edit</a>
+                          </div>
+                          
+                          <div class="input-field col s8 margin">
+                            <input id="profile-comments" type="text" class="validate margin">
+                            <label for="profile-comments" class="">Comments/Questions</label>
+                          </div>                        
+                        </div>                        
+                      </div>
+					  </div>
+					  </div>
+					  <!-- START FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        <span>Copyright © 2016 <a class="white-text text-lighten-4" href="#" target="_blank">Jiit_Help</a> All rights reserved.</span>
+        <span class="right"> Design and Developed by <a class="white-text text-lighten-4" href="#">Jiit_Help</a></span>
+        </div>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
